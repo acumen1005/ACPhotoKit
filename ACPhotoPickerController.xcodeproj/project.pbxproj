@@ -1,0 +1,367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C783C2120415F68004CBC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C2020415F68004CBC49 /* AppDelegate.swift */; };
+		4C783C2320415F68004CBC49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C2220415F68004CBC49 /* ViewController.swift */; };
+		4C783C2620415F68004CBC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C783C2420415F68004CBC49 /* Main.storyboard */; };
+		4C783C2820415F68004CBC49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C783C2720415F68004CBC49 /* Assets.xcassets */; };
+		4C783C2B20415F68004CBC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C783C2920415F68004CBC49 /* LaunchScreen.storyboard */; };
+		4C783C3620416016004CBC49 /* ACPhotoPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C3520416016004CBC49 /* ACPhotoPickerController.swift */; };
+		4C783C3820416085004CBC49 /* ACAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C3720416085004CBC49 /* ACAsset.swift */; };
+		4C783C3A20416407004CBC49 /* ACUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C3920416407004CBC49 /* ACUtils.swift */; };
+		4C783C3C2041664F004CBC49 /* ACConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C3B2041664F004CBC49 /* ACConstants.swift */; };
+		4C783C3E20416A83004CBC49 /* ACAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C3D20416A83004CBC49 /* ACAssetCollection.swift */; };
+		4C783C41204172A3004CBC49 /* ACAssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C40204172A3004CBC49 /* ACAssetCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C783C1D20415F68004CBC49 /* ACPhotoPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACPhotoPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C783C2020415F68004CBC49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C783C2220415F68004CBC49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C783C2520415F68004CBC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C783C2720415F68004CBC49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C783C2A20415F68004CBC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4C783C2C20415F68004CBC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C783C3520416016004CBC49 /* ACPhotoPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPhotoPickerController.swift; sourceTree = "<group>"; };
+		4C783C3720416085004CBC49 /* ACAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAsset.swift; sourceTree = "<group>"; };
+		4C783C3920416407004CBC49 /* ACUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUtils.swift; sourceTree = "<group>"; };
+		4C783C3B2041664F004CBC49 /* ACConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACConstants.swift; sourceTree = "<group>"; };
+		4C783C3D20416A83004CBC49 /* ACAssetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAssetCollection.swift; sourceTree = "<group>"; };
+		4C783C40204172A3004CBC49 /* ACAssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAssetCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C783C1A20415F68004CBC49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C783C1420415F68004CBC49 = {
+			isa = PBXGroup;
+			children = (
+				4C783C3220415F88004CBC49 /* Classes */,
+				4C783C1F20415F68004CBC49 /* ACPhotoPickerController */,
+				4C783C1E20415F68004CBC49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C783C1E20415F68004CBC49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C783C1D20415F68004CBC49 /* ACPhotoPickerController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C783C1F20415F68004CBC49 /* ACPhotoPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				4C783C2020415F68004CBC49 /* AppDelegate.swift */,
+				4C783C2220415F68004CBC49 /* ViewController.swift */,
+				4C783C2420415F68004CBC49 /* Main.storyboard */,
+				4C783C2720415F68004CBC49 /* Assets.xcassets */,
+				4C783C2920415F68004CBC49 /* LaunchScreen.storyboard */,
+				4C783C2C20415F68004CBC49 /* Info.plist */,
+			);
+			path = ACPhotoPickerController;
+			sourceTree = "<group>";
+		};
+		4C783C3220415F88004CBC49 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C783C3F2041726F004CBC49 /* Views */,
+				4C783C3920416407004CBC49 /* ACUtils.swift */,
+				4C783C3720416085004CBC49 /* ACAsset.swift */,
+				4C783C3D20416A83004CBC49 /* ACAssetCollection.swift */,
+				4C783C3520416016004CBC49 /* ACPhotoPickerController.swift */,
+				4C783C3B2041664F004CBC49 /* ACConstants.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4C783C3F2041726F004CBC49 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C783C40204172A3004CBC49 /* ACAssetCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C783C1C20415F68004CBC49 /* ACPhotoPickerController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C783C2F20415F68004CBC49 /* Build configuration list for PBXNativeTarget "ACPhotoPickerController" */;
+			buildPhases = (
+				4C783C1920415F68004CBC49 /* Sources */,
+				4C783C1A20415F68004CBC49 /* Frameworks */,
+				4C783C1B20415F68004CBC49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ACPhotoPickerController;
+			productName = ACPhotoPickerController;
+			productReference = 4C783C1D20415F68004CBC49 /* ACPhotoPickerController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C783C1520415F68004CBC49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = acumen;
+				TargetAttributes = {
+					4C783C1C20415F68004CBC49 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4C783C1820415F68004CBC49 /* Build configuration list for PBXProject "ACPhotoPickerController" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C783C1420415F68004CBC49;
+			productRefGroup = 4C783C1E20415F68004CBC49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C783C1C20415F68004CBC49 /* ACPhotoPickerController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C783C1B20415F68004CBC49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C783C2B20415F68004CBC49 /* LaunchScreen.storyboard in Resources */,
+				4C783C2820415F68004CBC49 /* Assets.xcassets in Resources */,
+				4C783C2620415F68004CBC49 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C783C1920415F68004CBC49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C783C41204172A3004CBC49 /* ACAssetCell.swift in Sources */,
+				4C783C3A20416407004CBC49 /* ACUtils.swift in Sources */,
+				4C783C3E20416A83004CBC49 /* ACAssetCollection.swift in Sources */,
+				4C783C3820416085004CBC49 /* ACAsset.swift in Sources */,
+				4C783C2320415F68004CBC49 /* ViewController.swift in Sources */,
+				4C783C2120415F68004CBC49 /* AppDelegate.swift in Sources */,
+				4C783C3620416016004CBC49 /* ACPhotoPickerController.swift in Sources */,
+				4C783C3C2041664F004CBC49 /* ACConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4C783C2420415F68004CBC49 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C783C2520415F68004CBC49 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4C783C2920415F68004CBC49 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C783C2A20415F68004CBC49 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C783C2D20415F68004CBC49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4C783C2E20415F68004CBC49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C783C3020415F68004CBC49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N364U2JVXK;
+				INFOPLIST_FILE = ACPhotoPickerController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.acumen.ACPhotoPickerController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4C783C3120415F68004CBC49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N364U2JVXK;
+				INFOPLIST_FILE = ACPhotoPickerController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.acumen.ACPhotoPickerController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C783C1820415F68004CBC49 /* Build configuration list for PBXProject "ACPhotoPickerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C783C2D20415F68004CBC49 /* Debug */,
+				4C783C2E20415F68004CBC49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C783C2F20415F68004CBC49 /* Build configuration list for PBXNativeTarget "ACPhotoPickerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C783C3020415F68004CBC49 /* Debug */,
+				4C783C3120415F68004CBC49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C783C1520415F68004CBC49 /* Project object */;
+}
