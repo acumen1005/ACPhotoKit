@@ -31,7 +31,7 @@ class ACAsset: NSObject {
                             size: CGSize,
                             deliveryMode: PHImageRequestOptionsDeliveryMode,
                             sync: Bool,
-                            completion: @escaping ((UIImage?, Error?) -> Void)) {
+                            completion: @escaping ((UIImage?, NSError?) -> Void)) {
         let requestOptions = PHImageRequestOptions()
         requestOptions.deliveryMode = deliveryMode
         requestOptions.isSynchronous = sync
@@ -42,5 +42,22 @@ class ACAsset: NSObject {
                                               options: requestOptions) { (image, info) in
             completion(image, nil)
         }
+    }
+    
+    func requestImage(size: CGSize,
+                      deliveryMode: PHImageRequestOptionsDeliveryMode,
+                      sync: Bool,
+                      completion: @escaping ((UIImage?, NSError?) -> Void)) {
+        guard let asset = self.asset else {
+            let error = NSError(domain: "ACAsset", code: -1, userInfo: nil)
+            completion(nil, error)
+            return
+        }
+        
+        ACAsset.requestImage(withAsset: asset,
+                             size: size,
+                             deliveryMode: deliveryMode,
+                             sync: sync,
+                             completion: completion)
     }
 }

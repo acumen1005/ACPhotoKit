@@ -34,6 +34,24 @@ class ACPhotoPickerController: UIViewController {
         return collectionView
     }()
     
+    fileprivate lazy var cancelBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
+        button.setTitle("取消", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.addTarget(self, action: #selector(closePicker), for: .touchUpInside)
+        let barButtonItem = UIBarButtonItem(customView: button)
+        return barButtonItem
+    }()
+    
+    fileprivate lazy var backBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
+        button.setTitle("返回", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.addTarget(self, action: #selector(popPicker), for: .touchUpInside)
+        let barButtonItem = UIBarButtonItem(customView: button)
+        return barButtonItem
+    }()
+    
     var images: [UIImage] = []
     
     override func viewDidLoad() {
@@ -42,32 +60,42 @@ class ACPhotoPickerController: UIViewController {
         
         self.view.addSubview(collectionView)
         
-        PHPhotoLibrary.requestAuthorization { status in
-            print("status = \(status)")
-            switch status {
-            case .authorized:
-                let assetCollectionResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumMyPhotoStream, options: nil)
-                let assetCollection = assetCollectionResult.firstObject!
-                ACAssetCollection.fetchAllAssets(InAssetCollection: assetCollection) { assets in
-                    for asset in assets {
-                        ACAsset.requestImage(withAsset: asset, size: self.layout.itemSize, deliveryMode: .highQualityFormat, sync: true, completion: { (image, error) in
-                            guard let image = image else {
-                                return
-                            }
-                            self.images.append(image)
-                        })
-                    }
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
+        ACPhotoLibrary.shared.requestAuthorization {
+            let assetCollectionResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumMyPhotoStream, options: nil)
+            let assetCollection = assetCollectionResult.firstObject!
+            ACAssetCollection.fetchAllAssets(InAssetCollection: assetCollection) { assets in
+                for asset in assets {
+                    ACAsset.requestImage(withAsset: asset, size: self.layout.itemSize, deliveryMode: .highQualityFormat, sync: true, completion: { (image, error) in
+                        guard let image = image else {
+                            return
+                        }
+                        self.images.append(image)
+                    })
                 }
-            case .denied: break
-            case .restricted: break
-            case .notDetermined: break
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    let lastItem = self.collectionView(self.collectionView, numberOfItemsInSection: 0) - 1
+                    let indexPath = IndexPath(row: lastItem, section: 0)
+                    self.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
+                }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-
+        self.navigationItem.rightBarButtonItem = cancelBarButtonItem
+    }
+    
+    @objc func closePicker() {
+        self.dismiss(animated: true) {
+            
+        }
+    }
+    
+    @objc func popPicker() {
+        
     }
     
     override func didReceiveMemoryWarning() {

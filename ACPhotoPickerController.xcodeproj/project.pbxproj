@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C716CF020428CAC00DEF246 /* ACPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C716CEF20428CAC00DEF246 /* ACPhotoLibrary.swift */; };
+		4C716CF2204294A100DEF246 /* ACAssetCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C716CF1204294A100DEF246 /* ACAssetCollectionsViewController.swift */; };
+		4C716CF420429D8A00DEF246 /* ACCollectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C716CF320429D8A00DEF246 /* ACCollectionsCell.swift */; };
 		4C783C2120415F68004CBC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C2020415F68004CBC49 /* AppDelegate.swift */; };
 		4C783C2320415F68004CBC49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C2220415F68004CBC49 /* ViewController.swift */; };
 		4C783C2620415F68004CBC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C783C2420415F68004CBC49 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C716CEF20428CAC00DEF246 /* ACPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPhotoLibrary.swift; sourceTree = "<group>"; };
+		4C716CF1204294A100DEF246 /* ACAssetCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAssetCollectionsViewController.swift; sourceTree = "<group>"; };
+		4C716CF320429D8A00DEF246 /* ACCollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACCollectionsCell.swift; sourceTree = "<group>"; };
 		4C783C1D20415F68004CBC49 /* ACPhotoPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACPhotoPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C783C2020415F68004CBC49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C783C2220415F68004CBC49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +91,9 @@
 				4C783C3720416085004CBC49 /* ACAsset.swift */,
 				4C783C3D20416A83004CBC49 /* ACAssetCollection.swift */,
 				4C783C3520416016004CBC49 /* ACPhotoPickerController.swift */,
+				4C716CF1204294A100DEF246 /* ACAssetCollectionsViewController.swift */,
 				4C783C3B2041664F004CBC49 /* ACConstants.swift */,
+				4C716CEF20428CAC00DEF246 /* ACPhotoLibrary.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -94,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				4C783C40204172A3004CBC49 /* ACAssetCell.swift */,
+				4C716CF320429D8A00DEF246 /* ACCollectionsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,9 +184,12 @@
 				4C783C3E20416A83004CBC49 /* ACAssetCollection.swift in Sources */,
 				4C783C3820416085004CBC49 /* ACAsset.swift in Sources */,
 				4C783C2320415F68004CBC49 /* ViewController.swift in Sources */,
+				4C716CF420429D8A00DEF246 /* ACCollectionsCell.swift in Sources */,
+				4C716CF2204294A100DEF246 /* ACAssetCollectionsViewController.swift in Sources */,
 				4C783C2120415F68004CBC49 /* AppDelegate.swift in Sources */,
 				4C783C3620416016004CBC49 /* ACPhotoPickerController.swift in Sources */,
 				4C783C3C2041664F004CBC49 /* ACConstants.swift in Sources */,
+				4C716CF020428CAC00DEF246 /* ACPhotoLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N364U2JVXK;
 				INFOPLIST_FILE = ACPhotoPickerController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.acumen.ACPhotoPickerController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -332,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N364U2JVXK;
 				INFOPLIST_FILE = ACPhotoPickerController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.acumen.ACPhotoPickerController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
