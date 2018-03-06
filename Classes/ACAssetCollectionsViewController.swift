@@ -38,7 +38,6 @@ class ACAssetCollectionsViewController: UIViewController {
         collections = ACAssetCollection.allCollections.map { assetCollection -> ACAssetCollection in
             return ACAssetCollection(collection: assetCollection)
         }
-        print(collections)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +62,17 @@ class ACAssetCollectionsViewController: UIViewController {
 }
 
 extension ACAssetCollectionsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let collection = collections[indexPath.row]
+        
+        if collection.assetsCount <= 0 {
+            return
+        }
+        
+        let picker = ACPhotoPickerController(assetCollection: collection.assetCollection)
+        self.navigationController?.pushViewController(picker, animated: true)
+    }
 }
 
 extension ACAssetCollectionsViewController: UITableViewDataSource {

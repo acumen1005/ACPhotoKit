@@ -24,7 +24,13 @@ class ACAssetCollection: NSObject {
         return assetCollection.localizedTitle
     }
     
+    var assetsCount: Int {
+        return self.assets.count
+    }
+    
     var assets: [PHAsset] = []
+    
+    
     
     init(collection: PHAssetCollection) {
         assetCollection = collection
@@ -34,12 +40,37 @@ class ACAssetCollection: NSObject {
         }
     }
     
+    /*
+     case smartAlbumGeneric
+     
+     case smartAlbumPanoramas
+     
+     case smartAlbumVideos
+     
+     case smartAlbumFavorites
+     
+     case smartAlbumTimelapses
+     
+     case smartAlbumAllHidden
+     
+     case smartAlbumRecentlyAdded
+     
+     case smartAlbumBursts
+     
+     case smartAlbumSlomoVideos
+     
+     case smartAlbumUserLibrary
+     */
+    
     class var allCollections: [PHAssetCollection] {
+        let allCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
         var collections: [PHAssetCollection] = []
         let assetCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
         let favoriteCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumFavorites, options: nil)
         let recentCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumRecentlyAdded, options: nil)
-        
+        let genericCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumGeneric, options: nil)
+        let panoramasCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumPanoramas, options: nil)
+
         assetCollections.enumerateObjects { (assetCollection, index, stop) in
             collections.append(assetCollection)
         }
@@ -47,6 +78,16 @@ class ACAssetCollection: NSObject {
             collections.append(assetCollection)
         }
         recentCollections.enumerateObjects { (assetCollection, index, stop) in
+            collections.append(assetCollection)
+        }
+        genericCollections.enumerateObjects { (assetCollection, index, stop) in
+            collections.append(assetCollection)
+        }
+        panoramasCollections.enumerateObjects { (assetCollection, index, stop) in
+            collections.append(assetCollection)
+        }
+        allCollections.enumerateObjects { (collection, index, stop) in
+            guard let assetCollection = collection as? PHAssetCollection else { return }
             collections.append(assetCollection)
         }
         

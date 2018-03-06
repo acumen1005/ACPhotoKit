@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
 
@@ -21,8 +22,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func openPhotoPicker(_ sender: Any) {
+        let assetCollectionResult = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+        let assetCollection = assetCollectionResult.firstObject!
+        
         let collectionsVC = ACAssetCollectionsViewController(nibName: nil, bundle: nil)
-        let pickerVc = ACPhotoPickerController(nibName: nil, bundle: nil)
+        let pickerVc = ACPhotoPickerController(assetCollection: assetCollection)
         let nav = UINavigationController(rootViewController: pickerVc)
         var vcs = nav.viewControllers
         vcs.insert(collectionsVC, at: 0)
