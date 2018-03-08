@@ -24,6 +24,7 @@
 		4C783C3E20416A83004CBC49 /* ACAssetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C3D20416A83004CBC49 /* ACAssetCollection.swift */; };
 		4C783C41204172A3004CBC49 /* ACAssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C40204172A3004CBC49 /* ACAssetCell.swift */; };
 		4C96B340204E372C004F41DF /* ACAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96B33F204E372C004F41DF /* ACAnimator.swift */; };
+		4CB09E242051385A009FED7E /* ZoomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB09E232051385A009FED7E /* ZoomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		4C783C3D20416A83004CBC49 /* ACAssetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAssetCollection.swift; sourceTree = "<group>"; };
 		4C783C40204172A3004CBC49 /* ACAssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAssetCell.swift; sourceTree = "<group>"; };
 		4C96B33F204E372C004F41DF /* ACAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAnimator.swift; sourceTree = "<group>"; };
+		4CB09E232051385A009FED7E /* ZoomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				4C783C40204172A3004CBC49 /* ACAssetCell.swift */,
 				4C716CF320429D8A00DEF246 /* ACCollectionsCell.swift */,
+				4CB09E232051385A009FED7E /* ZoomImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				4C783C3A20416407004CBC49 /* ACUtils.swift in Sources */,
 				4C783C3E20416A83004CBC49 /* ACAssetCollection.swift in Sources */,
 				4C783C3820416085004CBC49 /* ACAsset.swift in Sources */,
+				4CB09E242051385A009FED7E /* ZoomImageView.swift in Sources */,
 				4C783C2320415F68004CBC49 /* ViewController.swift in Sources */,
 				4C716CF420429D8A00DEF246 /* ACCollectionsCell.swift in Sources */,
 				4C46E371204939D6000CCD67 /* ACAnimatedTransition.swift in Sources */,
@@ -345,7 +349,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.acumen.ACPhotoPickerController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -361,7 +365,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.acumen.ACPhotoPickerController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

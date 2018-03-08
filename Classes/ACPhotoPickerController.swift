@@ -26,7 +26,7 @@ class ACPhotoPickerController: UIViewController {
     }()
     
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.layout)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = self.view.backgroundColor

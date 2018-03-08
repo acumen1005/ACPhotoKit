@@ -10,22 +10,12 @@ import UIKit
 import Photos
 
 class ACPhotoGalleryViewController: UIViewController {
-
-    lazy var imageView: UIImageView = {
-        let width = Screen.width
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height))
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
     
-//    fileprivate lazy var backBarButtonItem: UIBarButtonItem = {
-//        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
-//        button.setTitle("返回", for: .normal)
-//        button.setTitleColor(UIColor.blue, for: .normal)
-//        button.addTarget(self, action: #selector(popPicker), for: .touchUpInside)
-//        let barButtonItem = UIBarButtonItem(customView: button)
-//        return barButtonItem
-//    }()
+    lazy var zoomImageView: ZoomImageView = {
+        let width = Screen.width
+        let zoomImageView = ZoomImageView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height))
+        return zoomImageView
+    }()
     
     var asset: ACAsset
     
@@ -34,15 +24,7 @@ class ACPhotoGalleryViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
         
-        DispatchQueue.global().async {
-            self.asset.requestImage(size: PHImageManagerMaximumSize, deliveryMode: .highQualityFormat, sync: true) { [weak self] (image, error) in
-                guard let `self` = self else { return }
-                
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                }
-            }
-        }
+        zoomImageView.renderImageView(asset: self.asset)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,6 +43,21 @@ class ACPhotoGalleryViewController: UIViewController {
     }
     
     func setup() {
-        self.view.addSubview(self.imageView)
+        if #available(iOS 11.0, *) {
+            self.zoomImageView.contentInsetAdjustmentBehavior = .never
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        self.view.addSubview(self.zoomImageView)
+        
+        self.zoomImageView.imageViewSingleTapped = { [weak self] in
+            guard
+                let strongSelf = self,
+                let isHidden = strongSelf.navigationController?.isNavigationBarHidden else {
+                    return
+            }
+            strongSelf.zoomImageView.backgroundColor = !isHidden ? UIColor.black : UIColor.white
+            strongSelf.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
+        }
     }
 }

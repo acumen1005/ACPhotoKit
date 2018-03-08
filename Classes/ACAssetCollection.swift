@@ -40,28 +40,6 @@ class ACAssetCollection: NSObject {
         }
     }
     
-    /*
-     case smartAlbumGeneric
-     
-     case smartAlbumPanoramas
-     
-     case smartAlbumVideos
-     
-     case smartAlbumFavorites
-     
-     case smartAlbumTimelapses
-     
-     case smartAlbumAllHidden
-     
-     case smartAlbumRecentlyAdded
-     
-     case smartAlbumBursts
-     
-     case smartAlbumSlomoVideos
-     
-     case smartAlbumUserLibrary
-     */
-    
     class var allCollections: [PHAssetCollection] {
         let allCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
         var collections: [PHAssetCollection] = []
@@ -70,26 +48,27 @@ class ACAssetCollection: NSObject {
         let recentCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumRecentlyAdded, options: nil)
         let genericCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumGeneric, options: nil)
         let panoramasCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumPanoramas, options: nil)
-
-        assetCollections.enumerateObjects { (assetCollection, index, stop) in
+        
+        
+        assetCollections.enumerateObjects({ (assetCollection, index, stop) in
             collections.append(assetCollection)
-        }
-        favoriteCollections.enumerateObjects { (assetCollection, index, stop) in
+        })
+        favoriteCollections.enumerateObjects({ (assetCollection, index, stop) in
             collections.append(assetCollection)
-        }
-        recentCollections.enumerateObjects { (assetCollection, index, stop) in
+        })
+        recentCollections.enumerateObjects({ (assetCollection, index, stop) in
             collections.append(assetCollection)
-        }
-        genericCollections.enumerateObjects { (assetCollection, index, stop) in
+        })
+        genericCollections.enumerateObjects({ (assetCollection, index, stop) in
             collections.append(assetCollection)
-        }
-        panoramasCollections.enumerateObjects { (assetCollection, index, stop) in
+        })
+        panoramasCollections.enumerateObjects({ (assetCollection, index, stop) in
             collections.append(assetCollection)
-        }
-        allCollections.enumerateObjects { (collection, index, stop) in
+        })
+        allCollections.enumerateObjects({ (collection, index, stop) in
             guard let assetCollection = collection as? PHAssetCollection else { return }
             collections.append(assetCollection)
-        }
+        })
         
         return collections
     }
@@ -105,12 +84,12 @@ class ACAssetCollection: NSObject {
             return
         }
         
-        assetsFetchResults.enumerateObjects { (asset, index, stop) in
+        assetsFetchResults.enumerateObjects({ (asset, index, stop) in
             assets.append(asset)
             
             if index == (assetsFetchResults.count - 1) {
                 completion(assets)
             }
-        }
+        })
     }
 }
