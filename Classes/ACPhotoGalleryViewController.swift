@@ -9,22 +9,44 @@
 import UIKit
 import Photos
 
+protocol ACPhotoGalleryDelegate: class {
+    func photoGallery(photoGallery: ACPhotoGalleryViewController, didSelectItemAt indexPath: IndexPath)
+}
+
 class ACPhotoGalleryViewController: UIViewController {
     
-    lazy var zoomImageView: ZoomImageView = {
-        let width = Screen.width
-        let zoomImageView = ZoomImageView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height))
-        return zoomImageView
+    fileprivate lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets.zero
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: Screen.width, height: Screen.height)
+        return layout
     }()
     
-    var asset: ACAsset
+    lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = self.view.backgroundColor
+        collectionView.isPagingEnabled = true
+        ACGalleryCell.registerClass(collectionView)
+        return collectionView
+    }()
     
-    init(asset: PHAsset) {
-        self.asset = ACAsset(asset: asset)
+    var assets: [ACAsset]
+    var currentIndexPath: IndexPath
+    
+    var delegate: ACPhotoGalleryDelegate?
+
+    init(assets: [PHAsset], current indexPath: IndexPath) {
+        self.currentIndexPath = indexPath
+        self.assets = assets.map({ asset -> ACAsset in
+            return ACAsset(asset: asset)
+        })
         
         super.init(nibName: nil, bundle: nil)
-        
-        zoomImageView.renderImageView(asset: self.asset)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +57,12 @@ class ACPhotoGalleryViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
+        if #available(iOS 11, *) {
+            self.collectionView.contentInsetAdjustmentBehavior = .never
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        
         setup()
     }
     
@@ -43,21 +71,43 @@ class ACPhotoGalleryViewController: UIViewController {
     }
     
     func setup() {
-        if #available(iOS 11.0, *) {
-            self.zoomImageView.contentInsetAdjustmentBehavior = .never
-        } else {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        self.view.addSubview(self.zoomImageView)
+        self.view.addSubview(self.collectionView)
         
-        self.zoomImageView.imageViewSingleTapped = { [weak self] in
-            guard
-                let strongSelf = self,
-                let isHidden = strongSelf.navigationController?.isNavigationBarHidden else {
-                    return
-            }
-            strongSelf.zoomImageView.backgroundColor = !isHidden ? UIColor.black : UIColor.white
-            strongSelf.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
+        UICollectionViewCell.registerClass(self.collectionView)
+        
+        self.collectionView.scrollToItem(at: self.currentIndexPath, at: .centeredHorizontally, animated: false)
+    }
+}
+
+extension ACPhotoGalleryViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let indexPath = self.collectionView.indexPathsForVisibleItems.first, let delegate = delegate {
+            delegate.photoGallery(photoGallery: self, didSelectItemAt: indexPath)
         }
+    }
+}
+
+extension ACPhotoGalleryViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension ACPhotoGalleryViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return assets.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ACGalleryCell = collectionView.dequeueReusableCell(at: indexPath)
+        cell.render(asset: self.assets[indexPath.row], singleTapped: {
+            guard let isHidden = self.navigationController?.isNavigationBarHidden else {
+                return
+            }
+            self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
+        })
+        return cell
     }
 }

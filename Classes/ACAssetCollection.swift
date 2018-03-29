@@ -70,7 +70,9 @@ class ACAssetCollection: NSObject {
             collections.append(assetCollection)
         })
         
-        return collections
+        return collections.filter { (assetCollection) -> Bool in
+            return ACAssetCollection(collection: assetCollection).assets.count > 0
+        }
     }
     
     class func fetchAllAssets(InAssetCollection assetCollection: PHAssetCollection, completion: @escaping (([PHAsset]) -> Void)) {

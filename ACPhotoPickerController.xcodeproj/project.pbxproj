@@ -25,6 +25,7 @@
 		4C783C41204172A3004CBC49 /* ACAssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C783C40204172A3004CBC49 /* ACAssetCell.swift */; };
 		4C96B340204E372C004F41DF /* ACAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96B33F204E372C004F41DF /* ACAnimator.swift */; };
 		4CB09E242051385A009FED7E /* ZoomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB09E232051385A009FED7E /* ZoomImageView.swift */; };
+		4CBF8803206B94240043BDD8 /* ACGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF8802206B94240043BDD8 /* ACGalleryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		4C783C40204172A3004CBC49 /* ACAssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAssetCell.swift; sourceTree = "<group>"; };
 		4C96B33F204E372C004F41DF /* ACAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAnimator.swift; sourceTree = "<group>"; };
 		4CB09E232051385A009FED7E /* ZoomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImageView.swift; sourceTree = "<group>"; };
+		4CBF8802206B94240043BDD8 /* ACGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACGalleryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4C783C40204172A3004CBC49 /* ACAssetCell.swift */,
+				4CBF8802206B94240043BDD8 /* ACGalleryCell.swift */,
 				4C716CF320429D8A00DEF246 /* ACCollectionsCell.swift */,
 				4CB09E232051385A009FED7E /* ZoomImageView.swift */,
 			);
@@ -193,6 +196,7 @@
 			files = (
 				4C783C41204172A3004CBC49 /* ACAssetCell.swift in Sources */,
 				4C783C3A20416407004CBC49 /* ACUtils.swift in Sources */,
+				4CBF8803206B94240043BDD8 /* ACGalleryCell.swift in Sources */,
 				4C783C3E20416A83004CBC49 /* ACAssetCollection.swift in Sources */,
 				4C783C3820416085004CBC49 /* ACAsset.swift in Sources */,
 				4CB09E242051385A009FED7E /* ZoomImageView.swift in Sources */,

@@ -58,3 +58,14 @@ extension UIAlertController {
         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
+
+extension Array where Element == IndexPath {
+    
+    func topIndexPath() -> IndexPath? {
+        if self.isEmpty { return nil }
+        
+        return self.reduce(IndexPath(row: Int.max, section: 0)) { (rs, indexPath) -> IndexPath in
+            return rs.row < indexPath.row ? rs : indexPath
+        }
+    }
+}

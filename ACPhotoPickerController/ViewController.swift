@@ -22,8 +22,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func openPhotoPicker(_ sender: Any) {
-        let assetCollectionResult = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
-        let assetCollection = assetCollectionResult.firstObject!
+        let assetCollection = ACAssetCollection.allCollections.first!
         
         let collectionsVC = ACAssetCollectionsViewController(nibName: nil, bundle: nil)
         let pickerVc = ACPhotoPickerController(assetCollection: assetCollection)

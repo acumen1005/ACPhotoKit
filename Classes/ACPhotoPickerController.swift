@@ -61,6 +61,7 @@ class ACPhotoPickerController: UIViewController {
     var images: [UIImage] = []
     var assetCollection: PHAssetCollection
     
+    var tmp = 0
     
     init(assetCollection: PHAssetCollection) {
         self.assetCollection = assetCollection
@@ -75,7 +76,7 @@ class ACPhotoPickerController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
-        self.view.addSubview(collectionView)
+        self.view.addSubview(self.collectionView)
         
         ACPhotoLibrary.shared.requestAuthorization {
             ACAssetCollection.fetchAllAssets(InAssetCollection: self.assetCollection) { assets in
@@ -84,7 +85,9 @@ class ACPhotoPickerController: UIViewController {
                     self.collectionView.reloadData()
                     let numberOfItems = max(self.collectionView.numberOfItems(inSection: 0) - 1, 0)
                     let indexPath = IndexPath(row: numberOfItems, section: 0)
-                    self.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
+                    if numberOfItems != 0 {
+                        self.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
+                    }
                 }
             }
         }
@@ -99,7 +102,7 @@ class ACPhotoPickerController: UIViewController {
     
     @objc func closePicker() {
         self.dismiss(animated: true) {
-            
+
         }
     }
     
@@ -112,14 +115,15 @@ class ACPhotoPickerController: UIViewController {
         guard let indexPath = currentIndexPath else {
             return nil
         }
-        return collectionView.cellForItem(at: indexPath)
+        return self.collectionView.cellForItem(at: indexPath)
     }
 }
 
 extension ACPhotoPickerController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.currentIndexPath = indexPath
-        let photoGalleryVc = ACPhotoGalleryViewController(asset: assets[indexPath.row])
+        let photoGalleryVc = ACPhotoGalleryViewController(assets: assets, current: indexPath)
+        photoGalleryVc.delegate = self
         
         self.navigationController?.delegate = self.animatedTransition
         self.navigationController?.pushViewController(photoGalleryVc, animated: true)
@@ -151,5 +155,13 @@ extension ACPhotoPickerController: UICollectionViewDataSource {
                 cell.render(image: image)
             }
         })
+    }
+}
+
+extension ACPhotoPickerController: ACPhotoGalleryDelegate {
+    func photoGallery(photoGallery: ACPhotoGalleryViewController, didSelectItemAt indexPath: IndexPath) {
+        self.currentIndexPath = indexPath
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
+        self.collectionView.layoutIfNeeded()
     }
 }
