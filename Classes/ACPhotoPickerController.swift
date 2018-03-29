@@ -26,7 +26,10 @@ class ACPhotoPickerController: UIViewController {
     }()
     
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.layout)
+        var frame = self.view.bounds
+        let collectionView = UICollectionView(frame: frame, collectionViewLayout: self.layout)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: Screen.tabBarHeight, right: 0)
+        collectionView.scrollIndicatorInsets = collectionView.contentInset
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = self.view.backgroundColor
@@ -52,10 +55,19 @@ class ACPhotoPickerController: UIViewController {
         return barButtonItem
     }()
     
+    fileprivate lazy var photoPickerFooterView: ACPhotoPickerFooterView = {
+        let footerViewHeight: CGFloat = 49 + 34
+        let blurEffectView = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        let footerView = ACPhotoPickerFooterView(effect: blurEffectView)
+        footerView.frame = CGRect(x: 0, y: Screen.height - footerViewHeight, width: Screen.width, height: footerViewHeight)
+        return footerView
+    }()
+    
     lazy var animatedTransition: ACAnimatedTransition? = {
         return ACAnimatedTransition()
     }()
     
+    fileprivate var selectedAssets = ACSelectedAssets(maxCount: 9)
     fileprivate var currentIndexPath: IndexPath?
     var assets: [PHAsset] = []
     var images: [UIImage] = []
@@ -77,6 +89,13 @@ class ACPhotoPickerController: UIViewController {
         self.view.backgroundColor = UIColor.white
         
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.photoPickerFooterView)
+        
+        self.photoPickerFooterView.doneClosure = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                
+            })
+        }
         
         ACPhotoLibrary.shared.requestAuthorization {
             ACAssetCollection.fetchAllAssets(InAssetCollection: self.assetCollection) { assets in
@@ -138,6 +157,7 @@ extension ACPhotoPickerController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ACAssetCell = collectionView.dequeueReusableCell(at: indexPath)
+        cell.delegate = self
         return cell
     }
     
@@ -152,9 +172,26 @@ extension ACPhotoPickerController: UICollectionViewDataSource {
                              completion: { (image, error) in
             guard let image = image else { return }
             DispatchQueue.main.async {
-                cell.render(image: image)
+                cell.render(image: image, selected: self.selectedAssets.contains(asset: ACAsset(asset: asset)), at: indexPath)
             }
         })
+    }
+}
+
+extension ACPhotoPickerController: ACAssetCellDelegate {
+    func assetCell(assetCell: ACAssetCell, didSelectItemAt indexPath: IndexPath, selected isSelected: Bool) {
+        let asset = self.assets[indexPath.row]
+        if !isSelected {
+            if self.selectedAssets.remove(asset: ACAsset(asset: asset)) {
+                assetCell.selectButton.isSelected = isSelected
+            }
+        } else {
+            if self.selectedAssets.insert(asset: ACAsset(asset: asset)) {
+                assetCell.selectButton.isSelected = isSelected
+            } else {
+                print("最多添加 \(self.selectedAssets.maxCount) 张图片")
+            }
+        }
     }
 }
 

@@ -9,18 +9,20 @@
 import UIKit
 import Photos
 
-class ACAsset: NSObject {
+class ACAsset {
     
     fileprivate var asset: PHAsset?
     
+    var localIdentifier: String? {
+        return asset?.localIdentifier
+    }
+    
     init(asset: PHAsset) {
         self.asset = asset
-        super.init()
     }
     
     init(localIdentifier: String) {
         self.asset = ACAsset.fetchResult(withLocalIdentifier: localIdentifier).firstObject
-        super.init()
     }
     
     class func fetchResult(withLocalIdentifier localIdentifier: String) -> PHFetchResult<PHAsset> {
@@ -60,4 +62,15 @@ class ACAsset: NSObject {
                              sync: sync,
                              completion: completion)
     }
+}
+
+extension ACAsset: Equatable {
+    
+    public static func ==(lhs: ACAsset, rhs: ACAsset) -> Bool {
+        guard let lhs = lhs.localIdentifier, let rhs = rhs.localIdentifier else {
+            return false
+        }
+        return lhs == rhs
+    }
+    
 }
