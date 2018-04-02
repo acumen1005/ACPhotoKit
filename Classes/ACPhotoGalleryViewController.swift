@@ -102,6 +102,7 @@ extension ACPhotoGalleryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ACGalleryCell = collectionView.dequeueReusableCell(at: indexPath)
+        cell.zoomImageView.zoomDelegate = self
         cell.render(asset: self.assets[indexPath.row], singleTapped: {
             guard let isHidden = self.navigationController?.isNavigationBarHidden else {
                 return
@@ -109,5 +110,11 @@ extension ACPhotoGalleryViewController: UICollectionViewDataSource {
             self.navigationController?.setNavigationBarHidden(!isHidden, animated: true)
         })
         return cell
+    }
+}
+
+extension ACPhotoGalleryViewController: ZoomImageViewDelegate {
+    func zoomImageView(_ zoomImageView: ZoomImageView, didPopViewController isPop: Bool) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

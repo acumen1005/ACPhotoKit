@@ -11,7 +11,7 @@ import UIKit
 final class ACSelectedAssets {
     
     private(set) var maxCount: Int
-    private var container: [ACAsset] = []
+    private(set) var container: [ACAsset] = []
     
     init(maxCount: Int) {
         self.maxCount = maxCount

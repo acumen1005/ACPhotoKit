@@ -11,6 +11,12 @@ import Photos
 
 class ACAsset {
     
+    enum ACAssetErrorCode: Int {
+        case ACAssetErrorCodeIsNil = -1
+    }
+    
+    let ACAssetErrorDomain = "ACAssetErrorDomain"
+    
     fileprivate var asset: PHAsset?
     
     var localIdentifier: String? {
@@ -51,7 +57,9 @@ class ACAsset {
                       sync: Bool,
                       completion: @escaping ((UIImage?, NSError?) -> Void)) {
         guard let asset = self.asset else {
-            let error = NSError(domain: "ACAsset", code: -1, userInfo: nil)
+            let error = NSError(domain: ACAssetErrorDomain,
+                                code: ACAssetErrorCode.ACAssetErrorCodeIsNil.rawValue,
+                                userInfo: nil)
             completion(nil, error)
             return
         }

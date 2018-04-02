@@ -8,13 +8,13 @@
 
 import UIKit
 
+enum TransitionType {
+    case push
+    case pop
+}
+
 class ACAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
-    enum TransitionType {
-        case push
-        case pop
-    }
-    
     var type: TransitionType
     
     init(type: TransitionType) {

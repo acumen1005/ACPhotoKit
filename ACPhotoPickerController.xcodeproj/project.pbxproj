@@ -11,6 +11,10 @@
 		4C46E371204939D6000CCD67 /* ACAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46E370204939D6000CCD67 /* ACAnimatedTransition.swift */; };
 		4C542FC9206CC2C7002B6C19 /* ACSelectedAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C542FC8206CC2C7002B6C19 /* ACSelectedAssets.swift */; };
 		4C542FCB206CCE4A002B6C19 /* ACPhotoPickerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C542FCA206CCE4A002B6C19 /* ACPhotoPickerFooterView.swift */; };
+		4C54311E2072269F002B6C19 /* PhtotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54311C2072269F002B6C19 /* PhtotoCell.swift */; };
+		4C54311F2072269F002B6C19 /* PhtotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C54311D2072269F002B6C19 /* PhtotoCell.xib */; };
+		4C5431212072307F002B6C19 /* ACInteractiveAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5431202072307F002B6C19 /* ACInteractiveAnimator.swift */; };
+		4C54312320723159002B6C19 /* ACInteractiveAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54312220723159002B6C19 /* ACInteractiveAnimatedTransition.swift */; };
 		4C716CF020428CAC00DEF246 /* ACPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C716CEF20428CAC00DEF246 /* ACPhotoLibrary.swift */; };
 		4C716CF2204294A100DEF246 /* ACAssetCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C716CF1204294A100DEF246 /* ACAssetCollectionsViewController.swift */; };
 		4C716CF420429D8A00DEF246 /* ACCollectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C716CF320429D8A00DEF246 /* ACCollectionsCell.swift */; };
@@ -35,6 +39,10 @@
 		4C46E370204939D6000CCD67 /* ACAnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAnimatedTransition.swift; sourceTree = "<group>"; };
 		4C542FC8206CC2C7002B6C19 /* ACSelectedAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSelectedAssets.swift; sourceTree = "<group>"; };
 		4C542FCA206CCE4A002B6C19 /* ACPhotoPickerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPhotoPickerFooterView.swift; sourceTree = "<group>"; };
+		4C54311C2072269F002B6C19 /* PhtotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhtotoCell.swift; sourceTree = "<group>"; };
+		4C54311D2072269F002B6C19 /* PhtotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhtotoCell.xib; sourceTree = "<group>"; };
+		4C5431202072307F002B6C19 /* ACInteractiveAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACInteractiveAnimator.swift; sourceTree = "<group>"; };
+		4C54312220723159002B6C19 /* ACInteractiveAnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACInteractiveAnimatedTransition.swift; sourceTree = "<group>"; };
 		4C716CEF20428CAC00DEF246 /* ACPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPhotoLibrary.swift; sourceTree = "<group>"; };
 		4C716CF1204294A100DEF246 /* ACAssetCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAssetCollectionsViewController.swift; sourceTree = "<group>"; };
 		4C716CF320429D8A00DEF246 /* ACCollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACCollectionsCell.swift; sourceTree = "<group>"; };
@@ -87,6 +95,8 @@
 		4C783C1F20415F68004CBC49 /* ACPhotoPickerController */ = {
 			isa = PBXGroup;
 			children = (
+				4C54311C2072269F002B6C19 /* PhtotoCell.swift */,
+				4C54311D2072269F002B6C19 /* PhtotoCell.xib */,
 				4C783C2020415F68004CBC49 /* AppDelegate.swift */,
 				4C783C2220415F68004CBC49 /* ViewController.swift */,
 				4C783C2420415F68004CBC49 /* Main.storyboard */,
@@ -110,6 +120,8 @@
 				4C783C3B2041664F004CBC49 /* ACConstants.swift */,
 				4C716CEF20428CAC00DEF246 /* ACPhotoLibrary.swift */,
 				4C46E370204939D6000CCD67 /* ACAnimatedTransition.swift */,
+				4C54312220723159002B6C19 /* ACInteractiveAnimatedTransition.swift */,
+				4C5431202072307F002B6C19 /* ACInteractiveAnimator.swift */,
 				4C96B33F204E372C004F41DF /* ACAnimator.swift */,
 				4C542FC8206CC2C7002B6C19 /* ACSelectedAssets.swift */,
 			);
@@ -188,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C783C2B20415F68004CBC49 /* LaunchScreen.storyboard in Resources */,
+				4C54311F2072269F002B6C19 /* PhtotoCell.xib in Resources */,
 				4C783C2820415F68004CBC49 /* Assets.xcassets in Resources */,
 				4C783C2620415F68004CBC49 /* Main.storyboard in Resources */,
 			);
@@ -209,12 +222,15 @@
 				4CB09E242051385A009FED7E /* ZoomImageView.swift in Sources */,
 				4C783C2320415F68004CBC49 /* ViewController.swift in Sources */,
 				4C716CF420429D8A00DEF246 /* ACCollectionsCell.swift in Sources */,
+				4C54311E2072269F002B6C19 /* PhtotoCell.swift in Sources */,
 				4C46E371204939D6000CCD67 /* ACAnimatedTransition.swift in Sources */,
 				4C46E36F2049364A000CCD67 /* ACPhotoGalleryViewController.swift in Sources */,
 				4C716CF2204294A100DEF246 /* ACAssetCollectionsViewController.swift in Sources */,
+				4C54312320723159002B6C19 /* ACInteractiveAnimatedTransition.swift in Sources */,
 				4C542FCB206CCE4A002B6C19 /* ACPhotoPickerFooterView.swift in Sources */,
 				4C783C2120415F68004CBC49 /* AppDelegate.swift in Sources */,
 				4C783C3620416016004CBC49 /* ACPhotoPickerController.swift in Sources */,
+				4C5431212072307F002B6C19 /* ACInteractiveAnimator.swift in Sources */,
 				4C783C3C2041664F004CBC49 /* ACConstants.swift in Sources */,
 				4C96B340204E372C004F41DF /* ACAnimator.swift in Sources */,
 				4C716CF020428CAC00DEF246 /* ACPhotoLibrary.swift in Sources */,

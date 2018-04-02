@@ -74,6 +74,8 @@ class ACPhotoPickerController: UIViewController {
     var assetCollection: PHAssetCollection
     
     var tmp = 0
+  
+    var doneAction: (([ACAsset]) -> Void)?
     
     init(assetCollection: PHAssetCollection) {
         self.assetCollection = assetCollection
@@ -93,7 +95,9 @@ class ACPhotoPickerController: UIViewController {
         
         self.photoPickerFooterView.doneClosure = { [weak self] in
             self?.dismiss(animated: true, completion: {
-                
+                if let action = self?.doneAction {
+                    action(self?.selectedAssets.container ?? [])
+                }
             })
         }
         

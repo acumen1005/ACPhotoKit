@@ -9,6 +9,10 @@
 import UIKit
 import Photos
 
+protocol ZoomImageViewDelegate: class {
+    func zoomImageView(_ zoomImageView: ZoomImageView, didPopViewController isPop: Bool)
+}
+
 final class ZoomImageView: UIScrollView {
     
     let DefaultMaximumZoomScale: CGFloat = 2.0
@@ -19,6 +23,10 @@ final class ZoomImageView: UIScrollView {
     }
     
     var imageViewSingleTapped: (() -> Void)?
+    var tx: CGFloat = 0
+    var ty: CGFloat = 0
+    
+    weak var zoomDelegate: ZoomImageViewDelegate? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -141,6 +149,32 @@ extension ZoomImageView {
 }
 
 extension ZoomImageView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let translatePoint = scrollView.panGestureRecognizer.translation(in: scrollView)
+        if translatePoint.y < 0 {
+            
+        } else {
+            if scrollView.isDragging {
+                tx = translatePoint.x > 0 ? sqrt(translatePoint.x) : -sqrt(-translatePoint.x)
+                ty = translatePoint.y > 0 ? sqrt(translatePoint.y) : -sqrt(-translatePoint.y)
+                
+                imageView.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: 1, tx: tx * 5, ty: ty * 5)
+            }
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if ty >= 15 {
+            if let delegate = zoomDelegate {
+                delegate.zoomImageView(self, didPopViewController: true)
+            }
+        } else {
+            UIView.animate(withDuration: 0.25) {
+                self.imageView.transform = CGAffineTransform.identity
+            }
+        }
+    }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
